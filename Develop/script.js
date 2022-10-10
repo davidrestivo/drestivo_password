@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 // created functions for the prompts
 
 function numberLength() {
-  let length = prompt("Choose a Password Length of 6-128 characters");
+  var length = prompt("Choose a Password Length of 6-128 characters");
   length = Number(length);
   console.log (typeof length);
   console.log (length)
@@ -15,57 +15,56 @@ function numberLength() {
   };
 }
 
-
-
 function lowerCase() {
-  let lower = prompt("Would like to use lowercase letters? Y or N");
-  if (lower == "Y") {
-   lowerCase.lower == true;
-  } else if ( lower == "N"){
-    lowerCase.lower == false;
-  }else {""
-
-  }
-  console.log (lower)
+  var hasLower = confirm("Would like to use lowercase letters?");
+  console.log (hasLower)
   
   upperCase();
 }
 
 function upperCase() {
-  let upper = prompt("Would like to use UPPERCASE letters? Y or N");
-  if (upper = "Y") {
-    upper = true;
-  } else {
-    upper = false;
-  }
-  console.log (upper)
+  var hasUpper = confirm("Would like to use UPPERCASE letters?");
+  console.log (hasUpper)
   
   useNumbers();
 }
 
 function useNumbers() {
-  let numbers = prompt("Would like to use numbers? Y or N");
-  if (numbers = "Y") {
-    numbers = true;
-  } else {
-    numbers = false;
-  }
-  console.log (numbers)
+  var hasNumbers = confirm("Would like to use numbers?");
+  console.log (hasNumbers)
 
   specialChars();
 }
 
 function specialChars() {
-  let special = prompt("Would like to use Special Characters? Y or N");
-  if (special = "Y") {
-    special = true;
-  } else {
-    special = false;
-  }
-  console.log (special)
-
+  var hasSpecial = confirm("Would like to use Special Characters?");
+  console.log (hasSpecial)
+  
 }
+
+var typesArr = [hasLower, hasUpper, hasNumbers, hasSpecial].filter (item => Object.values(item)[0]);
+
+console.log ('typesArr: ', typesArr);
+
+// const typesArr = [{hasLower} + {hasUpper} + {hasNumbers} + {hasSymbol} + length];
+
+// console.log ("typesArray: ", typesArr);
+
+
+
+// const randomFunc = {
+//   lower: getRandomLower,
+//   upper: getRandomUpper,
+//   numbers: getRandomNumber,
+//   symbol: getRandomSymbol
+
+// };
+
+ 
+
 // created variables for values selected
+
+// created random select functions
 
  function getRandomLower () {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -81,17 +80,23 @@ function specialChars() {
 
  function getRandomSymbol () {
   const symbols = "!@#$%^&*(){}[]=<>"
-  return symbols[Math.floor(Math.random() * symbols.length)];
+  return symbols [Math.floor(Math.random() * symbols.length)];
  }
-
- let generatePassword = 
-
  console.log(getRandomSymbol());
 
+ function generatePassword(hasLower, hasUpper, hasNumbers, hasSymbol, length){
+
+  let generatedPassword = '';
 
 
-// Write password to the #password input
+ 
+
+ }
+
+
+// Write password to the #password input  
 function writePassword() {
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
