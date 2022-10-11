@@ -3,8 +3,15 @@ var generateBtn = document.querySelector("#generate");
 
 // created functions for the prompts
 
+var length;
+var hasLower;
+var hasUpper;
+var hasNumbers;
+var hasSpecial;
+
+
 function numberLength() {
-  var length = prompt("Choose a Password Length of 6-128 characters");
+  length = prompt("Choose a Password Length of 6-128 characters");
   length = Number(length);
   console.log (typeof length);
   console.log (length)
@@ -16,80 +23,99 @@ function numberLength() {
 }
 
 function lowerCase() {
-  var hasLower = confirm("Would like to use lowercase letters?");
+  hasLower = confirm("Would like to use lowercase letters?");
   console.log (hasLower)
   
   upperCase();
 }
 
 function upperCase() {
-  var hasUpper = confirm("Would like to use UPPERCASE letters?");
+  hasUpper = confirm("Would like to use UPPERCASE letters?");
   console.log (hasUpper)
   
   useNumbers();
 }
 
 function useNumbers() {
-  var hasNumbers = confirm("Would like to use numbers?");
+  hasNumbers = confirm("Would like to use numbers?");
   console.log (hasNumbers)
 
   specialChars();
 }
 
-function specialChars() {
-  var hasSpecial = confirm("Would like to use Special Characters?");
-  console.log (hasSpecial)
-  
+function specialChars(  ) {
+  hasSpecial = confirm("Would like to use Special Characters?");
+  console.log (hasSpecial);
+  pull()
 }
 
-var typesArr = [hasLower, hasUpper, hasNumbers, hasSpecial].filter (item => Object.values(item)[0]);
+function pull(){
+var lower = hasLower;
+var upper = hasUpper;
+var numbers = hasNumbers;
+var special = hasSpecial;
 
-console.log ('typesArr: ', typesArr);
-
-// const typesArr = [{hasLower} + {hasUpper} + {hasNumbers} + {hasSymbol} + length];
-
-// console.log ("typesArray: ", typesArr);
-
-
-
-// const randomFunc = {
-//   lower: getRandomLower,
-//   upper: getRandomUpper,
-//   numbers: getRandomNumber,
-//   symbol: getRandomSymbol
-
-// };
-
+console.log (lower, upper, numbers, special);
+}
  
 
 // created variables for values selected
 
 // created random select functions
 
- function getRandomLower () {
+// const resultEl = document.getElementById('result');
+// const lengthEl = document.getElementById('length');
+// const uppercaseEl = document.getElementById('uppercase');
+// const lowercaseEl = document.getElementById('lowercase');
+// const numbersEl = document.getElementById('numbers');
+// const symbolsEl = document.getElementById('symbols');
+// const generateEl = document.getElementById('generate');
+
+// const randomFunc = {
+//   lower: getRandomLower,
+//   upper: getRandomUpper,
+//   number: getRandomNumber,
+//   symbol: getRandomSymbol
+// };
+
+// generateEl.addEventListener('click', () => {
+// //   // const length = lengthEl.value;
+//   const includeLower = hasLowerEl.checked;
+//   const includeUpper = hasUpperEl.checked;
+//   const includeNumbers = hasNumbersEl.checked;
+//   const includeSymbols = hasSpecialEl.checked;
+
+//   console.log (includeLower, includeUpper, includeNumbers, includeSymbols);
+
+
+// });
+
+
+ function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
  }
 
- function getRandomUpper () {
+ function getRandomUpper() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
  }
 
- function getRandomNumber () {
+ function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
  }
 
- function getRandomSymbol () {
+ function getRandomSymbol() {
   const symbols = "!@#$%^&*(){}[]=<>"
   return symbols [Math.floor(Math.random() * symbols.length)];
  }
- console.log(getRandomSymbol());
+ console.log(getRandomLower());
 
- function generatePassword(hasLower, hasUpper, hasNumbers, hasSymbol, length){
+ function generatePassword(lower, upper, numbers, special, length){
 
   let generatedPassword = '';
 
+  const typesCount = lower + upper + numbers + special;
 
- 
+  console.log('typesCount', typesCount);
 
  }
 
