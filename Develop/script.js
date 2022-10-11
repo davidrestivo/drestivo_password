@@ -3,11 +3,9 @@ var generateBtn = document.querySelector("#generate");
 
 // created functions for the prompts
 
-var length;
-var hasLower;
-var hasUpper;
-var hasNumbers;
-var hasSpecial;
+// const resultEl = document.getElementById('result');
+// const lengthEl = document.getElementById("length");
+// const generateEl = document.getElementById('generate');
 
 const randomFunc = {
   lower: getRandomLower,
@@ -15,6 +13,21 @@ const randomFunc = {
   number: getRandomNumber,
   symbol: getRandomSymbol
 };
+
+var length;
+var lower;
+var upper;
+var numbers;
+var special;
+
+
+// generateEl.addEventListener("click", () => {
+//   const length = lengthEl.value;
+//   console.log (length);
+
+
+
+// })
 
 function numberLength() {
   length = prompt("Choose a Password Length of 6-128 characters");
@@ -30,87 +43,50 @@ function numberLength() {
 }
 
 function lowerCase() {
-  hasLower = confirm("Would like to use lowercase letters?");
-  console.log (hasLower)
+  lower = confirm("Would like to use lowercase letters?");
+  console.log (lower)
   upperCase();
-  return hasLower;
+  return lower;
   
 }
 
 
 function upperCase() {
-  hasUpper = confirm("Would like to use UPPERCASE letters?");
-  console.log (hasUpper)
+  upper = confirm("Would like to use UPPERCASE letters?");
+  console.log (upper)
   useNumbers();
-  return hasUpper;
+  return upper;
 }
 
 function useNumbers() {
-  hasNumbers = confirm("Would like to use numbers?");
-  console.log (hasNumbers)
+  numbers = confirm("Would like to use numbers?");
+  console.log (numbers)
   specialChars();
-  return hasNumbers;
+  return numbers;
 }
 
 function specialChars() {
-  hasSpecial = confirm("Would like to use Special Characters?");
-  console.log (hasSpecial);
+  special = confirm("Would like to use Special Characters?");
+  console.log (special);
   pull()
-  return hasSpecial;
+  return special;
 }
 
 
-
 function pull(){
-  console.log (length, hasLower, hasUpper, hasNumbers, hasSpecial);
+  console.log (length, lower, upper, numbers, special);
   }
-
-  var lengthGood = length;
-
-  console.log (lengthGood);
  
 
-// created variables for values selected
-
-// created random select functions
-
-// const resultEl = document.getElementById('result');
-// const lengthEl = document.getElementById('length');
-// const uppercaseEl = document.getElementById('uppercase');
-// const lowercaseEl = document.getElementById('lowercase');
-// const numbersEl = document.getElementById('numbers');
-// const symbolsEl = document.getElementById('symbols');
-// const generateEl = document.getElementById('generate');
-
-
-
-
-
-// generateEl.addEventListener('click', () => {
-// //   // const length = lengthEl.value;
-//   const includeLower = hasLowerEl.checked;
-//   const includeUpper = hasUpperEl.checked;
-//   const includeNumbers = hasNumbersEl.checked;
-//   const includeSymbols = hasSpecialEl.checked;
-
-//   console.log (includeLower, includeUpper, includeNumbers, includeSymbols);
-
-
-// });
-
-
- 
-//  console.log(getRandomLower());
-
- function generatePassword(){
+ function generatePassword(lower, upper, numbers, special, length){
 
   let generatedPassword = '';
 
-  const typesCount = hasLower + hasUpper + hasNumbers + hasSpecial;
+  const typesCount = lower + upper + numbers + special;
 
   console.log('typesCount', typesCount);
 
-  const typesArr = [{hasLower}, {hasUpper}, {hasNumbers}, {hasSpecial}].filter
+  const typesArr = [{lower}, {upper}, {numbers}, {special}].filter
     (
         items => Object.values(items)[0]
     );
@@ -123,16 +99,17 @@ function pull(){
   }
 
   for(let i = 0; i < length; i += typesCount) {
-    typesArr.forEach(type =>{
-      const funcName = Object.keys(type)[0]; 
-      console.log ("funcName: ", funcName)
+    typesArr.forEach(type => {
+      const funName = Object.keys(type)[0]; 
+      console.log ("funcName: ", funName);
 
-      generatedPassword += randomFunc[funcName]();
+      generatedPassword += randomFunc[funName]();
 
-      })
+      });
+    console.log(generatedPassword);
   }
 
-}
+} 
 
  function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
