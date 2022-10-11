@@ -14,6 +14,7 @@ var charSet = "";
 // put a call for the 1st function in the html
 
 function numberLength() {
+  charSet = "";
   length = prompt("Choose a Password Length of 6-128 characters");
   length = Number(length);
   console.log (typeof length);
