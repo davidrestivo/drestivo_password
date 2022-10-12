@@ -12,7 +12,7 @@ var charSet = "";
 // Created the prompts for all the conditions for character
 // put a console.log on each of the character choices to see the results in console
 // put a call for the 1st function in the html
-
+// added a charSet reset to reload the parameters after password is generated and attempting again
 function numberLength() {
   charSet = "";
   length = prompt("Choose a Password Length of 6-128 characters");
@@ -28,7 +28,8 @@ function numberLength() {
   return length;
 
 }
-
+// got rid of all the returns in the confirm functions
+// added charset += to add in the choice selections
 function lowerCase() {
   lower = confirm("Would like to use lowercase letters?");
   if(lower){
@@ -36,7 +37,6 @@ function lowerCase() {
   }
   console.log (lower)
   upperCase();
-  return lower;
   
 }
 
@@ -47,7 +47,6 @@ function upperCase() {
   }
   console.log (upper)
   useNumbers();
-  return upper;
 
 }
 
@@ -58,7 +57,6 @@ function useNumbers() {
   }
   console.log (numbers)
   specialChars();
-  // return numbers;
 
 }
 
@@ -69,7 +67,7 @@ function specialChars() {
   }
   // console.log (special);
   // console.log (charSet);
-  return special;
+
 }
 
 // worked on the random function and write of the gereated password with the tutor
@@ -88,9 +86,6 @@ function generatePassword(){
   return retVal;
   }
 }
-// if (generatePassword() === true){
-//   return "";
-// };
 
 
 // Write password to the #password input  
