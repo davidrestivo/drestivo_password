@@ -21,7 +21,7 @@ function numberLength() {
   console.log (length)
   if (length < 6   || length > 128) {
   alert("Please choose a number between 6 and 128")
-  return "";
+  numberLength();
   } else {
   lowerCase()
   };
