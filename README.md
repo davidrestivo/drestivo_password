@@ -7,6 +7,8 @@ With this project, we built a random password generator using new concepts such 
 
 https://davidrestivo.github.io/drestivo_password/
 
+file:///Users/davidrestivo/code/bootcamp/homework/drestivo_password/Develop/index.html
+
 https://github.com/davidrestivo/drestivo_password
 
 
