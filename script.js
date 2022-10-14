@@ -65,12 +65,10 @@ function specialChars() {
   if(special){
     charSet += specialChar;
   }
-  // console.log (special);
-  // console.log (charSet);
 
 }
 
-// worked on the random function and write of the gereated password with the tutor
+// worked on the random function and write of the generated password with the tutor
  
 function generatePassword(){
 // console.log (charSet.length);  
